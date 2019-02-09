@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'tapboxa.dart';
+import 'tapboxb.dart';
 
 class StateManagePage extends StatelessWidget {
   @override
@@ -34,7 +35,7 @@ class StateManagePage extends StatelessWidget {
                   // 导航到新路由
                   Navigator.push(context,
                       new MaterialPageRoute(builder: (context) {
-                    return new TapbpxAPage();
+                    return new TapboxBPage();
                       }));
                 },
               ),
