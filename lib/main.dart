@@ -1,3 +1,5 @@
+import 'package:dart_demo1/widgetstest/widgets_test.dart';
+
 /// 此行代码作用是导入了Material UI组件库。Material是一种标准的移动端和web端的视觉设计语言，
 /// Flutter默认提供了一套丰富的Material风格的UI组件。
 import 'package:flutter/material.dart';
@@ -54,6 +56,7 @@ class MyApp extends StatelessWidget {
         "echo": (context) => new EchoPage(),
         "counter": (context) => new CounterPage(),
         "state_manage": (context) => new StateManagePage(),
+        "widgets_test": (context) => new WidgetsTestPage(),
       },
       // 应用首页路由
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -160,7 +163,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, "echo");
               },
             ),
-
             FlatButton(
               padding: const EdgeInsets.all(10.0),
               child: Text("open counter page"),
@@ -171,7 +173,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, "counter");
               },
             ),
-
             FlatButton(
               padding: const EdgeInsets.all(10.0),
               child: Text("open state manage page"),
@@ -180,6 +181,16 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 // 导航到新路由
                 Navigator.pushNamed(context, "state_manage");
+              },
+            ),
+            FlatButton(
+              padding: const EdgeInsets.all(10.0),
+              child: Text("Widgets相关练习"),
+              textColor: Colors.blue,
+              color: Colors.black,
+              onPressed: () {
+                // 导航到新路由
+                Navigator.pushNamed(context, "widgets_test");
               },
             ),
           ],
