@@ -1,3 +1,4 @@
+import 'package:dart_demo1/tapboxc.dart';
 /// 状态管理
 
 import 'package:flutter/material.dart';
@@ -47,7 +48,7 @@ class StateManagePage extends StatelessWidget {
                   // 导航到新路由
                   Navigator.push(context,
                       new MaterialPageRoute(builder: (context) {
-                    return new TapbpxAPage();
+                    return new TapboxCPage();
                       }));
                 },
               ),
