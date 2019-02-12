@@ -71,6 +71,7 @@ flutter:
 
   assets:
   - assets/jsonTest.json
+  - assets/images/avatar.jpeg
 
   fonts:
   - family: Raleway
@@ -83,3 +84,6 @@ flutter:
   - family: AbrilFatface
     fonts:
     - asset: assets/fonts/abrilfatface/AbrilFatface-Regular.ttf
+  - family: MyIcon #这里指定一个字体名，首字母需要大写，不然字符无法显示
+    fonts:
+    - asset: assets/fonts/iconfont/iconfont.ttf
