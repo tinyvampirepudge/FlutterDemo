@@ -5,7 +5,7 @@ class InputWidgetTestPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text("输入框及表单"),
+          title: new Text("输入框"),
         ),
         body: Scrollbar(
           child: SingleChildScrollView(
