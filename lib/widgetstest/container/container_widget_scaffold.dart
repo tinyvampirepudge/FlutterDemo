@@ -118,7 +118,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
             SizedBox(),
             IconButton(icon: Icon(Icons.business)),
           ],
-          // 均分底部导航栏横向空间
+          // 均分底部导航栏的横向空间
           mainAxisAlignment: MainAxisAlignment.spaceAround,
         ),
       ),
