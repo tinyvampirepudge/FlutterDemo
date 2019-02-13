@@ -84,8 +84,7 @@ class _FormTestRouteState extends State<FormTestRoute> {
                           // 通过 _formkey.currentContext 获取FormState后，
                           // 调用validate()方法校验用户名密码是否合法，校验通过后再提交数据
 
-                          if ((_formkey.currentState as FormState)
-                              .validate()) {
+                          if ((_formkey.currentState as FormState).validate()) {
                             // 通过校验提交数据
                             print("通过校验提交数据");
                           }
