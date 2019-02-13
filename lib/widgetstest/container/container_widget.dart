@@ -2,6 +2,7 @@ import 'package:dart_demo1/widgetstest/container/container_widget_constrained_bo
 import 'package:dart_demo1/widgetstest/container/container_widget_decorated_box.dart';
 import 'package:dart_demo1/widgetstest/container/container_widget_padding.dart';
 import 'package:dart_demo1/widgetstest/container/container_widget_sized_box.dart';
+import 'package:dart_demo1/widgetstest/container/container_widget_transform.dart';
 import 'package:flutter/material.dart';
 
 class ContainerWidgets extends StatelessWidget {
@@ -55,6 +56,17 @@ class ContainerWidgets extends StatelessWidget {
                 Navigator.push(context,
                     new MaterialPageRoute(builder: (context) {
                   return new DecoratedBoxWidgetText();
+                }));
+              },
+            ),
+            RaisedButton(
+              child: Text("Transform"),
+              padding: EdgeInsets.all(10.0),
+              onPressed: () {
+                // 导航到新路由
+                Navigator.push(context,
+                    new MaterialPageRoute(builder: (context) {
+                  return new TransformWidgetTest();
                 }));
               },
             ),
