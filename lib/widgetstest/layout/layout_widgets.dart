@@ -1,6 +1,8 @@
 import 'package:dart_demo1/widgetstest/layout/layout_widget_column.dart';
 import 'package:dart_demo1/widgetstest/layout/layout_widget_flex.dart';
+import 'package:dart_demo1/widgetstest/layout/layout_widget_flow.dart';
 import 'package:dart_demo1/widgetstest/layout/layout_widget_row.dart';
+import 'package:dart_demo1/widgetstest/layout/layout_widget_wrap.dart';
 import 'package:flutter/material.dart';
 
 class LayoutWidgets extends StatelessWidget {
@@ -45,6 +47,28 @@ class LayoutWidgets extends StatelessWidget {
                   Navigator.push(context,
                       new MaterialPageRoute(builder: (context) {
                     return new FlexWidgetTest();
+                  }));
+                },
+              ),
+              RaisedButton(
+                child: Text("流式布局Wrap"),
+                padding: EdgeInsets.all(10.0),
+                onPressed: () {
+                  // 导航到新路由
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (context) {
+                    return new WrapWidgetText();
+                  }));
+                },
+              ),
+              RaisedButton(
+                child: Text("流式布局Flow"),
+                padding: EdgeInsets.all(10.0),
+                onPressed: () {
+                  // 导航到新路由
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (context) {
+                    return new FlowWidgetTest();
                   }));
                 },
               ),
