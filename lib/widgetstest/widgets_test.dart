@@ -1,8 +1,9 @@
 // 基础Widgets
 
 import 'package:dart_demo1/widgetstest/base/base_widgets.dart';
-import 'package:dart_demo1/widgetstest/container/container_widget.dart';
+import 'package:dart_demo1/widgetstest/container/container_widgets.dart';
 import 'package:dart_demo1/widgetstest/layout/layout_widgets.dart';
+import 'package:dart_demo1/widgetstest/scroll/scroll_widgets.dart';
 import 'package:flutter/material.dart';
 
 class WidgetsTestPage extends StatelessWidget {
@@ -51,8 +52,21 @@ class WidgetsTestPage extends StatelessWidget {
                   // 导航到新路由
                   Navigator.push(context,
                       new MaterialPageRoute(builder: (context) {
-                        return new ContainerWidgets();
-                      }));
+                    return new ContainerWidgets();
+                  }));
+                },
+              ),
+              FlatButton(
+                child: Text("可滚动Widgets"),
+                padding: const EdgeInsets.all(10.0),
+                textColor: Colors.blue,
+                color: Colors.black,
+                onPressed: () {
+                  // 导航到新路由
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (context) {
+                    return new ScrollWidgets();
+                  }));
                 },
               ),
             ],
