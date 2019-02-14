@@ -1,3 +1,4 @@
+import 'package:dart_demo1/widgetstest/scroll/scroll_widget_listview.dart';
 import 'package:dart_demo1/widgetstest/scroll/scroll_widget_single_child_scroll_view.dart';
 import 'package:flutter/material.dart';
 
@@ -20,8 +21,19 @@ class ScrollWidgets extends StatelessWidget {
                     // 导航到新路由
                     Navigator.push(context,
                         new MaterialPageRoute(builder: (context) {
-                          return new SingleChildScrollViewWidgetTest();
-                        }));
+                      return new SingleChildScrollViewWidgetTest();
+                    }));
+                  },
+                ),
+                RaisedButton(
+                  child: Text("ListView"),
+                  padding: EdgeInsets.all(10.0),
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.push(context,
+                        new MaterialPageRoute(builder: (context) {
+                      return new ListViewWidgetTest();
+                    }));
                   },
                 ),
               ],
