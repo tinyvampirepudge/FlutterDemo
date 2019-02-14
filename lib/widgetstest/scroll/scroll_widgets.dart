@@ -1,3 +1,4 @@
+import 'package:dart_demo1/widgetstest/scroll/scroll_widget_gridview.dart';
 import 'package:dart_demo1/widgetstest/scroll/scroll_widget_listview.dart';
 import 'package:dart_demo1/widgetstest/scroll/scroll_widget_single_child_scroll_view.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,17 @@ class ScrollWidgets extends StatelessWidget {
                     Navigator.push(context,
                         new MaterialPageRoute(builder: (context) {
                       return new ListViewWidgetTest();
+                    }));
+                  },
+                ),
+                RaisedButton(
+                  child: Text("GridView"),
+                  padding: EdgeInsets.all(10.0),
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.push(context,
+                        new MaterialPageRoute(builder: (context) {
+                      return new GridViewWidgetTest();
                     }));
                   },
                 ),
