@@ -1,6 +1,7 @@
 import 'package:dart_demo1/widgetstest/scroll/scroll_widget_custom_scrollview.dart';
 import 'package:dart_demo1/widgetstest/scroll/scroll_widget_gridview.dart';
 import 'package:dart_demo1/widgetstest/scroll/scroll_widget_listview.dart';
+import 'package:dart_demo1/widgetstest/scroll/scroll_widget_scroll_controller.dart';
 import 'package:dart_demo1/widgetstest/scroll/scroll_widget_single_child_scroll_view.dart';
 import 'package:flutter/material.dart';
 
@@ -57,6 +58,17 @@ class ScrollWidgets extends StatelessWidget {
                     Navigator.push(context,
                         new MaterialPageRoute(builder: (context) {
                       return new CustomScrollViewWidgetText();
+                    }));
+                  },
+                ),
+                RaisedButton(
+                  child: Text("ScrollController"),
+                  padding: EdgeInsets.all(10.0),
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.push(context,
+                        new MaterialPageRoute(builder: (context) {
+                      return new ScrollControllerWidgetTest();
                     }));
                   },
                 ),
