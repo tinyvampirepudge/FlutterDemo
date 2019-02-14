@@ -39,7 +39,6 @@ class ListView1 extends StatelessWidget {
 class ListView2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return ListView.builder(
       itemCount: 80,
       itemExtent: 50.0, // 强制高度为50.0
