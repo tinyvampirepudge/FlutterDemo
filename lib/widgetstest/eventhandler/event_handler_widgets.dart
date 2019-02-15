@@ -1,6 +1,7 @@
 import 'package:dart_demo1/widgetstest/eventhandler/event_handler_widget_eventbus_a.dart';
 import 'package:dart_demo1/widgetstest/eventhandler/event_handler_widget_eventbus_b.dart';
 import 'package:dart_demo1/widgetstest/eventhandler/event_handler_widget_gesture_detector.dart';
+import 'package:dart_demo1/widgetstest/eventhandler/event_handler_widget_notification.dart';
 import 'package:dart_demo1/widgetstest/eventhandler/event_handler_widget_pointer.dart';
 import 'package:flutter/material.dart';
 
@@ -55,6 +56,17 @@ class EventHandlerWidgets extends StatelessWidget {
                 Navigator.push(context,
                     new MaterialPageRoute(builder: (context) {
                   return new EventBusWidgetTestB();
+                }));
+              },
+            ),
+            RaisedButton(
+              child: Text("通知——Notification"),
+              padding: EdgeInsets.all(10.0),
+              onPressed: () {
+                // 导航到新路由
+                Navigator.push(context,
+                    new MaterialPageRoute(builder: (context) {
+                  return new NotificationWidgetTest();
                 }));
               },
             ),
