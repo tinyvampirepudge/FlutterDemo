@@ -1,3 +1,4 @@
+import 'package:dart_demo1/widgetstest/file/file_operation.dart';
 import 'package:dart_demo1/widgetstest/widgets_test.dart';
 
 /// 此行代码作用是导入了Material UI组件库。Material是一种标准的移动端和web端的视觉设计语言，
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
         "counter": (context) => new CounterPage(),
         "state_manage": (context) => new StateManagePage(),
         "widgets_test": (context) => new WidgetsTestPage(),
+        "file_operation": (context) => new FileOperationRoute(),
       },
       // 应用首页路由
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -191,6 +193,16 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 // 导航到新路由
                 Navigator.pushNamed(context, "widgets_test");
+              },
+            ),
+            FlatButton(
+              padding: const EdgeInsets.all(10.0),
+              child: Text("文件操作"),
+              textColor: Colors.blue,
+              color: Colors.black,
+              onPressed: () {
+                // 导航到新路由
+                Navigator.pushNamed(context, "file_operation");
               },
             ),
           ],
