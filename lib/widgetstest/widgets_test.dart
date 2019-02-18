@@ -1,5 +1,6 @@
 // 基础Widgets
 
+import 'package:dart_demo1/widgetstest/animation/animation_widgets.dart';
 import 'package:dart_demo1/widgetstest/base/base_widgets.dart';
 import 'package:dart_demo1/widgetstest/container/container_widgets.dart';
 import 'package:dart_demo1/widgetstest/eventhandler/event_handler_widgets.dart';
@@ -94,6 +95,19 @@ class WidgetsTestPage extends StatelessWidget {
                   Navigator.push(context,
                       new MaterialPageRoute(builder: (context) {
                     return new EventHandlerWidgets();
+                  }));
+                },
+              ),
+              FlatButton(
+                child: Text("动画"),
+                padding: const EdgeInsets.all(10.0),
+                textColor: Colors.blue,
+                color: Colors.black,
+                onPressed: () {
+                  // 导航到新路由
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (context) {
+                    return new AnimationWidgets();
                   }));
                 },
               ),
