@@ -1,4 +1,7 @@
-import 'package:dart_demo1/widgetstest/file/file_operation.dart';
+import 'package:dart_demo1/file/file_operation.dart';
+import 'package:dart_demo1/http/http_client.dart';
+import 'package:dart_demo1/http/http_route.dart';
+import 'package:dart_demo1/plugins/plugins_route.dart';
 import 'package:dart_demo1/widgetstest/widgets_test.dart';
 
 /// 此行代码作用是导入了Material UI组件库。Material是一种标准的移动端和web端的视觉设计语言，
@@ -59,6 +62,8 @@ class MyApp extends StatelessWidget {
         "state_manage": (context) => new StateManagePage(),
         "widgets_test": (context) => new WidgetsTestPage(),
         "file_operation": (context) => new FileOperationRoute(),
+        "http": (context) => new HttpRouteText(),
+        "plugins": (context) => new PluginsRouteText(),
       },
       // 应用首页路由
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -114,98 +119,132 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display4,
-            ),
-            FlatButton(
-              child: Text("open new route"),
-              textColor: Colors.blue,
-              color: Colors.black,
-              onPressed: () {
-                // 导航到新路由
-                Navigator.pushNamed(context, "new_page");
+      body: Scrollbar(
+        child: SingleChildScrollView(
+          child: Center(
+            // Center is a layout widget. It takes a single child and positions it
+            // in the middle of the parent.
+            child: Column(
+              // Column is also layout widget. It takes a list of children and
+              // arranges them vertically. By default, it sizes itself to fit its
+              // children horizontally, and tries to be as tall as its parent.
+              //
+              // Invoke "debug painting" (press "p" in the console, choose the
+              // "Toggle Debug Paint" action from the Flutter Inspector in Android
+              // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+              // to see the wireframe for each widget.
+              //
+              // Column has various properties to control how it sizes itself and
+              // how it positions its children. Here we use mainAxisAlignment to
+              // center the children vertically; the main axis here is the vertical
+              // axis because Columns are vertical (the cross axis would be
+              // horizontal).
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'You have pushed the button this many times:',
+                ),
+                Text(
+                  '$_counter',
+                  style: Theme.of(context).textTheme.display4,
+                ),
+                FlatButton(
+                  child: Text("open new route"),
+                  textColor: Colors.blue,
+                  color: Colors.black,
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.pushNamed(context, "new_page");
 //                Navigator.push(context,
 //                    new MaterialPageRoute(builder: (context) {
 //                  return new NewRoute();
 //                }));
-              },
+                  },
+                ),
+                RandomWordWidget(),
+                FlatButton(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("open echo page"),
+                  textColor: Colors.blue,
+                  color: Colors.black,
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.pushNamed(context, "echo");
+                  },
+                ),
+                FlatButton(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("open counter page"),
+                  textColor: Colors.blue,
+                  color: Colors.black,
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.pushNamed(context, "counter");
+                  },
+                ),
+                FlatButton(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("open state manage page"),
+                  textColor: Colors.blue,
+                  color: Colors.black,
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.pushNamed(context, "state_manage");
+                  },
+                ),
+                FlatButton(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("Widgets相关练习"),
+                  textColor: Colors.blue,
+                  color: Colors.black,
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.pushNamed(context, "widgets_test");
+                  },
+                ),
+                FlatButton(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("文件操作"),
+                  textColor: Colors.blue,
+                  color: Colors.black,
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.pushNamed(context, "file_operation");
+                  },
+                ),
+                FlatButton(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("文件操作"),
+                  textColor: Colors.blue,
+                  color: Colors.black,
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.pushNamed(context, "file_operation");
+                  },
+                ),
+                FlatButton(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("Http"),
+                  textColor: Colors.blue,
+                  color: Colors.black,
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.pushNamed(context, "http");
+                  },
+                ),
+                FlatButton(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("Plugins"),
+                  textColor: Colors.blue,
+                  color: Colors.black,
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.pushNamed(context, "plugins");
+                  },
+                ),
+              ],
             ),
-            RandomWordWidget(),
-            FlatButton(
-              padding: const EdgeInsets.all(10.0),
-              child: Text("open echo page"),
-              textColor: Colors.blue,
-              color: Colors.black,
-              onPressed: () {
-                // 导航到新路由
-                Navigator.pushNamed(context, "echo");
-              },
-            ),
-            FlatButton(
-              padding: const EdgeInsets.all(10.0),
-              child: Text("open counter page"),
-              textColor: Colors.blue,
-              color: Colors.black,
-              onPressed: () {
-                // 导航到新路由
-                Navigator.pushNamed(context, "counter");
-              },
-            ),
-            FlatButton(
-              padding: const EdgeInsets.all(10.0),
-              child: Text("open state manage page"),
-              textColor: Colors.blue,
-              color: Colors.black,
-              onPressed: () {
-                // 导航到新路由
-                Navigator.pushNamed(context, "state_manage");
-              },
-            ),
-            FlatButton(
-              padding: const EdgeInsets.all(10.0),
-              child: Text("Widgets相关练习"),
-              textColor: Colors.blue,
-              color: Colors.black,
-              onPressed: () {
-                // 导航到新路由
-                Navigator.pushNamed(context, "widgets_test");
-              },
-            ),
-            FlatButton(
-              padding: const EdgeInsets.all(10.0),
-              child: Text("文件操作"),
-              textColor: Colors.blue,
-              color: Colors.black,
-              onPressed: () {
-                // 导航到新路由
-                Navigator.pushNamed(context, "file_operation");
-              },
-            ),
-          ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
