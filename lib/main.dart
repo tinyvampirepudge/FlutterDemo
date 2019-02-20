@@ -1,3 +1,4 @@
+import 'package:dart_demo1/custom_ui_framework.dart';
 import 'package:dart_demo1/file/file_operation.dart';
 import 'package:dart_demo1/http/http_client.dart';
 import 'package:dart_demo1/http/http_route.dart';
@@ -64,6 +65,7 @@ class MyApp extends StatelessWidget {
         "file_operation": (context) => new FileOperationRoute(),
         "http": (context) => new HttpRouteText(),
         "plugins": (context) => new PluginsRouteText(),
+        "custom_ui_framework": (context) => new CustomUIFrameworkRoute(),
       },
       // 应用首页路由
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -240,6 +242,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     // 导航到新路由
                     Navigator.pushNamed(context, "plugins");
+                  },
+                ),
+                FlatButton(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("自定义UI框架"),
+                  textColor: Colors.blue,
+                  color: Colors.black,
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.pushNamed(context, "custom_ui_framework");
                   },
                 ),
               ],

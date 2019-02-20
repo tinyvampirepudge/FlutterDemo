@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class PluginsRouteText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text("插件开发"),
