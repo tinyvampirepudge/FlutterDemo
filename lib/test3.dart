@@ -71,29 +71,30 @@ main() {
 //    print(e);
 //  });
 
-//  task();
+  task();
+  print('猫了个咪');
 
-  Stream.fromFutures([
-    Future.delayed(new Duration(seconds: 1), () {
-//      return "hello 1";
-      throw AssertionError("Error 1");
-    }),
-    Future.delayed(new Duration(seconds: 2), () {
-//      return "hello 2";
-      throw AssertionError("Error 2");
-    }),
-    Future.delayed(new Duration(seconds: 3), () {
-//      return "hello 3";
-      throw AssertionError("Error 3");
-    }),
-  ]).listen((data) {
-    print(data);
-  }, onError: (e) {
-    print('onError');
-    print(e.message);
-  }, onDone: () {
-    print('onDone');
-  });
+//  Stream.fromFutures([
+//    Future.delayed(new Duration(seconds: 1), () {
+////      return "hello 1";
+//      throw AssertionError("Error 1");
+//    }),
+//    Future.delayed(new Duration(seconds: 2), () {
+////      return "hello 2";
+//      throw AssertionError("Error 2");
+//    }),
+//    Future.delayed(new Duration(seconds: 3), () {
+////      return "hello 3";
+//      throw AssertionError("Error 3");
+//    }),
+//  ]).listen((data) {
+//    print(data);
+//  }, onError: (e) {
+//    print('onError');
+//    print(e.message);
+//  }, onDone: () {
+//    print('onDone');
+//  });
 }
 
 task() async {
