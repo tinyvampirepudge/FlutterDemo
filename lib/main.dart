@@ -217,16 +217,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 FlatButton(
                   padding: const EdgeInsets.all(10.0),
-                  child: Text("文件操作"),
-                  textColor: Colors.blue,
-                  color: Colors.black,
-                  onPressed: () {
-                    // 导航到新路由
-                    Navigator.pushNamed(context, "file_operation");
-                  },
-                ),
-                FlatButton(
-                  padding: const EdgeInsets.all(10.0),
                   child: Text("Http"),
                   textColor: Colors.blue,
                   color: Colors.black,

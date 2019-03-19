@@ -20,20 +20,17 @@ public class MainActivity extends FlutterActivity {
         super.onCreate(savedInstanceState);
         GeneratedPluginRegistrant.registerWith(this);
 
-        new MethodChannel(getFlutterView(), CHANNEL).setMethodCallHandler(new MethodChannel.MethodCallHandler() {
-            @Override
-            public void onMethodCall(MethodCall call, MethodChannel.Result result) {
-                if (call.method.equals("getBatteryLevel")) {
-                    int batteryLevel = getBatteryLevel();
+        new MethodChannel(getFlutterView(), CHANNEL).setMethodCallHandler((call, result) -> {
+            if (call.method.equals("getBatteryLevel")) {
+                int batteryLevel = getBatteryLevel();
 
-                    if (batteryLevel != -1) {
-                        result.success(batteryLevel);
-                    } else {
-                        result.error("UNAVAILABLE", "Battery level not available", null);
-                    }
+                if (batteryLevel != -1) {
+                    result.success(batteryLevel);
                 } else {
-                    result.notImplemented();
+                    result.error("UNAVAILABLE", "Battery level not available", null);
                 }
+            } else {
+                result.notImplemented();
             }
         });
     }
