@@ -3,6 +3,7 @@ import 'package:dart_demo1/darttest/dart_test_route.dart';
 import 'package:dart_demo1/file/file_operation.dart';
 import 'package:dart_demo1/http/http_route.dart';
 import 'package:dart_demo1/plugins/plugins_route.dart';
+import 'package:dart_demo1/test6.dart';
 import 'package:dart_demo1/widgetstest/widgets_test.dart';
 
 /// 此行代码作用是导入了Material UI组件库。Material是一种标准的移动端和web端的视觉设计语言，
@@ -67,6 +68,7 @@ class MyApp extends StatelessWidget {
         "plugins": (context) => new PluginsRouteText(),
         "custom_ui_framework": (context) => new CustomUIFrameworkRoute(),
         "dart_test": (context) => new DartTestRoute(),
+        "xiaojiejie": (context) => new CheckBookLoginPage(),
       },
       // 应用首页路由
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -253,6 +255,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     // 导航到新路由
                     Navigator.pushNamed(context, "dart_test");
+                  },
+                ),
+                FlatButton(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("帮小姐姐调页面"),
+                  textColor: Colors.blue,
+                  color: Colors.black,
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.pushNamed(context, "xiaojiejie");
                   },
                 ),
               ],

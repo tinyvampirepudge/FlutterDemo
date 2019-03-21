@@ -84,6 +84,7 @@ flutter:
   - assets/jsonTest.json
   - assets/images/avatar.jpeg
   - assets/images/avatar1.png
+  - assets/images/icon_close.png
 
   fonts:
   - family: Raleway
