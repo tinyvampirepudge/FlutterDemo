@@ -2,6 +2,7 @@ import 'package:dart_demo1/custom_ui_framework.dart';
 import 'package:dart_demo1/darttest/dart_test_route.dart';
 import 'package:dart_demo1/file/file_operation.dart';
 import 'package:dart_demo1/http/http_route.dart';
+import 'package:dart_demo1/lifecycle/widget_lifecycle.dart';
 import 'package:dart_demo1/plugins/plugins_route.dart';
 import 'package:dart_demo1/test6.dart';
 import 'package:dart_demo1/widgetstest/widgets_test.dart';
@@ -69,6 +70,7 @@ class MyApp extends StatelessWidget {
         "custom_ui_framework": (context) => new CustomUIFrameworkRoute(),
         "dart_test": (context) => new DartTestRoute(),
         "xiaojiejie": (context) => new CheckBookLoginPage(),
+        "lifecycle": (context) => new WidgetLifecycle(),
       },
       // 应用首页路由
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -265,6 +267,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     // 导航到新路由
                     Navigator.pushNamed(context, "xiaojiejie");
+                  },
+                ),
+                FlatButton(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("Widget生命周期"),
+                  textColor: Colors.blue,
+                  color: Colors.black,
+                  onPressed: () {
+                    // 导航到新路由
+                    Navigator.pushNamed(context, "lifecycle");
                   },
                 ),
               ],
