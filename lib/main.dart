@@ -1,8 +1,10 @@
 import 'package:dart_demo1/custom_ui_framework.dart';
 import 'package:dart_demo1/darttest/dart_test_route.dart';
 import 'package:dart_demo1/file/file_operation.dart';
+import 'package:dart_demo1/http/http_client.dart';
 import 'package:dart_demo1/http/http_route.dart';
-import 'package:dart_demo1/lifecycle/widget_lifecycle.dart';
+import 'package:dart_demo1/lifecycle/lifecycle_base.dart';
+import 'package:dart_demo1/lifecycle/widget_lifecycle_test.dart';
 import 'package:dart_demo1/plugins/plugins_route.dart';
 import 'package:dart_demo1/test6.dart';
 import 'package:dart_demo1/widgetstest/widgets_test.dart';
@@ -14,6 +16,9 @@ import 'package:english_words/english_words.dart';
 import 'echo.dart';
 import 'counter.dart';
 import 'state_manage.dart';
+
+// Register the RouteObserver as a navigation observer.
+final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
 /*
  * 与C/C++、Java类似，Flutter 应用中main函数为应用程序的入口，main函数中调用了
@@ -71,9 +76,15 @@ class MyApp extends StatelessWidget {
         "dart_test": (context) => new DartTestRoute(),
         "xiaojiejie": (context) => new CheckBookLoginPage(),
         "lifecycle": (context) => new WidgetLifecycle(),
+        "http_client": (context) => new HttpClientTestRoute(),
       },
       // 应用首页路由
       home: MyHomePage(title: 'Flutter Demo Home Page'),
+
+      // Register the RouteObserver as a navigation observer.
+      navigatorObservers: [routeObserver],
+
+//      navigatorObservers: [CustomNavigatorObserver()],
     );
   }
 }
@@ -97,7 +108,7 @@ class MyHomePage extends StatefulWidget {
 //  _MyHomePageState createState() => new _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends StateWithLifecycle<MyHomePage> {
   int _counter = 0;
 
   /// 该函数的作用是先自增_counter，然后调用setState 方法。
@@ -113,6 +124,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  void initState() {
+    state_with_lifecycle_tag = "MyHomePage";
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
@@ -124,7 +141,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+//        title: Text(widget.title),
+        title: Text("猫了个咪"),
       ),
       body: Scrollbar(
         child: SingleChildScrollView(

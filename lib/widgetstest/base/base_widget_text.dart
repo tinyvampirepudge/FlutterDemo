@@ -1,10 +1,24 @@
+import 'package:dart_demo1/lifecycle/lifecycle_base.dart';
 import 'package:flutter/material.dart';
 
 const textStyle = const TextStyle(
   fontFamily: 'Raleway',
 );
 
-class TextWidgetsTest extends StatelessWidget {
+class TextWidgetsTest extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return new _TextWidgetsTestState();
+  }
+}
+
+class _TextWidgetsTestState extends StateWithLifecycle<TextWidgetsTest> {
+  @override
+  void initState() {
+    state_with_lifecycle_tag = "TextWidgetsTest";
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

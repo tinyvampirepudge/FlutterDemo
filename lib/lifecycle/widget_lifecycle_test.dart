@@ -1,14 +1,15 @@
-import 'package:dart_demo1/http/http_client.dart';
+import 'package:dart_demo1/main.dart';
 import 'package:flutter/material.dart';
 
-const String lifecycleTag = 'lifecycleTag';
+const String lifecycleTag = 'lifecycleTag_lifecycle';
+const String routeTag = 'routeTag_lifecycle';
 
 class WidgetLifecycle extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _WidgetLifecycleState();
 }
 
-class _WidgetLifecycleState extends State<WidgetLifecycle> with WidgetsBindingObserver {
+class _WidgetLifecycleState extends State<WidgetLifecycle> with WidgetsBindingObserver, RouteAware {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,9 +24,7 @@ class _WidgetLifecycleState extends State<WidgetLifecycle> with WidgetsBindingOb
               padding: EdgeInsets.all(10.0),
               onPressed: () {
                 // 导航到新路由
-                Navigator.push(context, new MaterialPageRoute(builder: (context) {
-                  return new HttpClientTestRoute();
-                }));
+                Navigator.pushNamed(context, "http_client");
               },
             ),
           ],
@@ -33,7 +32,6 @@ class _WidgetLifecycleState extends State<WidgetLifecycle> with WidgetsBindingOb
       ),
     );
   }
-
 
   @override
   void initState() {
@@ -43,9 +41,18 @@ class _WidgetLifecycleState extends State<WidgetLifecycle> with WidgetsBindingOb
   }
 
   @override
+  void deactivate() {
+    print('${lifecycleTag} --> deactivate');
+    var lifecycleRoute = ModalRoute.of(context).settings.name;
+//    print('lifecycleRoute:$lifecycleRoute');
+    super.deactivate();
+  }
+
+  @override
   void dispose() {
     print('${lifecycleTag} --> dispose');
     WidgetsBinding.instance.removeObserver(this);
+    routeObserver.unsubscribe(this);
     super.dispose();
   }
 
@@ -70,4 +77,27 @@ class _WidgetLifecycleState extends State<WidgetLifecycle> with WidgetsBindingOb
     }
   }
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    routeObserver.subscribe(this, ModalRoute.of(context));
+  }
+
+  @override
+  void didPush() {
+    // Route was pushed onto navigator and is now topmost route.
+    print('$routeTag:didPush');
+  }
+
+  @override
+  void didPopNext() {
+    // Covering route was popped off the navigator.
+    print('$routeTag:didPopNext');
+  }
+
+  @override
+  void didPop() {
+    print('$routeTag:didPop');
+    super.didPop();
+  }
 }

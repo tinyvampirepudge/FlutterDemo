@@ -1,3 +1,4 @@
+import 'package:dart_demo1/lifecycle/lifecycle_base.dart';
 import 'package:dart_demo1/widgetstest/base/base_widget_button.dart';
 import 'package:dart_demo1/widgetstest/base/base_widget_checkbox.dart';
 import 'package:dart_demo1/widgetstest/base/base_widget_form.dart';
@@ -6,7 +7,20 @@ import 'package:dart_demo1/widgetstest/base/base_widget_input.dart';
 import 'package:dart_demo1/widgetstest/base/base_widget_text.dart';
 import 'package:flutter/material.dart';
 
-class BaseWidgets extends StatelessWidget {
+class BaseWidgets extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return new _BaseWidgetsState();
+  }
+}
+
+class _BaseWidgetsState extends StateWithLifecycle<BaseWidgets> {
+  @override
+  void initState() {
+    state_with_lifecycle_tag = "_BaseWidgetsState";
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -24,8 +38,7 @@ class BaseWidgets extends StatelessWidget {
               color: Colors.black,
               onPressed: () {
                 // 导航到新路由
-                Navigator.push(context,
-                    new MaterialPageRoute(builder: (context) {
+                Navigator.push(context, new MaterialPageRoute(builder: (context) {
                   return new TextWidgetsTest();
                 }));
               },
@@ -37,8 +50,7 @@ class BaseWidgets extends StatelessWidget {
               color: Colors.black,
               onPressed: () {
                 // 导航到新路由
-                Navigator.push(context,
-                    new MaterialPageRoute(builder: (context) {
+                Navigator.push(context, new MaterialPageRoute(builder: (context) {
                   return new ButtonWidgetTest();
                 }));
               },
@@ -50,8 +62,7 @@ class BaseWidgets extends StatelessWidget {
               color: Colors.black,
               onPressed: () {
                 // 导航到新路由
-                Navigator.push(context,
-                    new MaterialPageRoute(builder: (context) {
+                Navigator.push(context, new MaterialPageRoute(builder: (context) {
                   return new ImageWidgetTest();
                 }));
               },
@@ -63,8 +74,7 @@ class BaseWidgets extends StatelessWidget {
               color: Colors.black,
               onPressed: () {
                 // 导航到新路由
-                Navigator.push(context,
-                    new MaterialPageRoute(builder: (context) {
+                Navigator.push(context, new MaterialPageRoute(builder: (context) {
                   return new TestWidgetCheckBox();
                 }));
               },
@@ -76,8 +86,7 @@ class BaseWidgets extends StatelessWidget {
               color: Colors.black,
               onPressed: () {
                 // 导航到新路由
-                Navigator.push(context,
-                    new MaterialPageRoute(builder: (context) {
+                Navigator.push(context, new MaterialPageRoute(builder: (context) {
                   return new InputWidgetTestPage();
                 }));
               },
@@ -89,10 +98,9 @@ class BaseWidgets extends StatelessWidget {
               color: Colors.black,
               onPressed: () {
                 // 导航到新路由
-                Navigator.push(context,
-                    new MaterialPageRoute(builder: (context) {
-                      return new FormWidgetTest();
-                    }));
+                Navigator.push(context, new MaterialPageRoute(builder: (context) {
+                  return new FormWidgetTest();
+                }));
               },
             ),
           ],
