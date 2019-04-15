@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
         "http_client": (context) => new HttpClientTestRoute(),
       },
       // 应用首页路由
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: '猫了个咪'),
 
       // Register the RouteObserver as a navigation observer.
       navigatorObservers: [routeObserver],

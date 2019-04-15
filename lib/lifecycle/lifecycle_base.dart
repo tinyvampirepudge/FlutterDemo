@@ -7,8 +7,7 @@ abstract class StateWithLifecycle<T extends StatefulWidget> extends State with W
   String tagInStateWithLifecycle = 'StateWithLifecycle';
 
   // 参照State中写法，防止子类获取不到正确的widget。
-  T get widget => _widget;
-  T _widget;
+  T get widget => super.widget;
 
   bool _isVisibleToUser = false; // 是否对用户可见，表明在onResume-onPause调用过程中。也用来表示当前页面是否在栈顶。
 
