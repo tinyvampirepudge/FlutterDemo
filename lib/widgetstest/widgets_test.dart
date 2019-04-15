@@ -21,7 +21,7 @@ class WidgetsTestPage extends StatefulWidget {
 class _WidgetsTestPageState extends StateWithLifecycle<WidgetsTestPage> {
   @override
   void initState() {
-    state_with_lifecycle_tag = "WidgetsTestPage";
+    tagInStateWithLifecycle = "WidgetsTestPage";
     super.initState();
   }
 

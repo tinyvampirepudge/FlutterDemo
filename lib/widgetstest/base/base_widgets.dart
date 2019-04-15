@@ -17,7 +17,7 @@ class BaseWidgets extends StatefulWidget {
 class _BaseWidgetsState extends StateWithLifecycle<BaseWidgets> {
   @override
   void initState() {
-    state_with_lifecycle_tag = "_BaseWidgetsState";
+    tagInStateWithLifecycle = "_BaseWidgetsState";
     super.initState();
   }
 
