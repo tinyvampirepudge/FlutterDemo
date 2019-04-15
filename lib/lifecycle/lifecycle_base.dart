@@ -1,8 +1,15 @@
 import 'package:dart_demo1/main.dart';
 import 'package:flutter/material.dart';
 
+// Register the RouteObserver as a navigation observer.
+final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
+
 abstract class StateWithLifecycle<T extends StatefulWidget> extends State with WidgetsBindingObserver, RouteAware {
   String state_with_lifecycle_tag = 'lifecycleTag';
+
+  // 参照State中写法，防止子类获取不到正确的widget。
+  T get widget => _widget;
+  T _widget;
 
   bool _isVisibleToUser = false; // 是否对用户可见，表明在onResume-onPause调用过程中。也用来表示当前页面是否在栈顶。
 
@@ -55,23 +62,20 @@ abstract class StateWithLifecycle<T extends StatefulWidget> extends State with W
   void didChangeAppLifecycleState(AppLifecycleState state) {
     switch (state) {
       case AppLifecycleState.resumed:
-//        debugPrint('${state_with_lifecycle_tag} --> AppLifecycleState.resumed');
+        debugPrint('${state_with_lifecycle_tag} --> AppLifecycleState.resumed');
         _onMockResume();
         _systemDispatched = false;
         break;
       case AppLifecycleState.inactive:
-//        debugPrint('${state_with_lifecycle_tag} --> AppLifecycleState.inactive');
         break;
       case AppLifecycleState.paused:
-//        debugPrint('${state_with_lifecycle_tag} --> AppLifecycleState.paused');
+        debugPrint('${state_with_lifecycle_tag} --> AppLifecycleState.paused');
         _systemDispatched = true;
         _onMockPause();
         break;
       case AppLifecycleState.suspending:
-//        debugPrint('${state_with_lifecycle_tag} --> AppLifecycleState.suspending');
         break;
       default:
-//        debugPrint('${state_with_lifecycle_tag} --> AppLifecycleState.default');
         break;
     }
   }

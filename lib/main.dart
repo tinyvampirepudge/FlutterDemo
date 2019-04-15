@@ -17,8 +17,7 @@ import 'echo.dart';
 import 'counter.dart';
 import 'state_manage.dart';
 
-// Register the RouteObserver as a navigation observer.
-final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
+
 
 /*
  * 与C/C++、Java类似，Flutter 应用中main函数为应用程序的入口，main函数中调用了
@@ -141,8 +140,8 @@ class _MyHomePageState extends StateWithLifecycle<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-//        title: Text(widget.title),
-        title: Text("猫了个咪"),
+        title: Text(widget.title),
+//        title: Text("猫了个咪"),
       ),
       body: Scrollbar(
         child: SingleChildScrollView(
